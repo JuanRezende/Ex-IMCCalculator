@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  /* CORES */
+  --tt-heading: #0c3440;
+
+  --tt-label: #00453a;
+  --tt-input: #212529;
+  --ot-input: #02799d;
+  --bd-input: rgba(73, 80, 87, 0.3);
+  --bg-input: #dce2e9;
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+
+  --tt-button: white;
+  --bg-button: #02799d;
+  --bg-button-hover: #055f7a;
+
+  --bg-error: #f03e3e;
+  --tt-error: white;
+}
+
+body,
+input,
+button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #040924;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+main {
+  width: min(42.8rem, 90%);
+  margin: -12rem auto;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.6rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+.title {
+  color: var(--tt-heading);
+
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form label {
+  color: var(--tt-label);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+form input {
+  background: var(--bg-input);
+  border: 1px solid var(--bd-input);
+  border-radius: 0.4rem;
+
+  font-size: 1.6rem;
+  padding: 1.6rem;
+}
+
+form input:focus {
+  background: #dce2e9;
+  outline: 2px solid var(--ot-input);
+}
+
+form input::placeholder {
+  color: var(--tt-placeholder);
+}
+
+form button {
+  cursor: pointer;
+  border: none;
+  background: var(--bg-button);
+  border-radius: 0.4rem;
+
+  color: var(--tt-button);
+
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: var(--bg-button-hover);
+}
+
+/* === MODAL === */
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-content: center;
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  transition: transform 0.3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+/* === ALERT ERROR === */
+
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+  color: var(--tt-error);
+  background: var(--bg-error);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  text-align: center;
+  font-weight: bold;
+  padding: 0.8rem 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform 0.5s;
+}
